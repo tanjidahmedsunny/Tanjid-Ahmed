@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="The personal website of Tanjid Ahmed Sunny — student, travel lover, and badminton fan.">
+  <title>Tanjid Ahmed Sunny | Personal Website</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,.07);
+      --text: #f5f7ff;
+      --muted: #b8c1d9;
+      --accent: #72e5c2;
+      --accent2: #82aaff;
+      --border: rgba(255,255,255,.13);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(ellipse at 15% 5%, rgba(130,170,255,.18), transparent 38rem),
+        radial-gradient(ellipse at 90% 35%, rgba(114,229,194,.12), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .container { width: min(1080px, 100% - 36px); margin: 0 auto; }
+    header { padding: 22px 0; }
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .brand { font-weight: 800; letter-spacing: .3px; text-decoration: none; }
+    .brand span { color: var(--accent); }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--muted); text-decoration: none; font-size: .94rem; }
+    nav a:hover, nav a:focus { color: var(--accent); }
+    .hero {
+      min-height: 70vh;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 42px;
+      padding: 58px 0 76px;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--accent); font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; font-size: .78rem;
+      border: 1px solid rgba(114,229,194,.25);
+      background: rgba(114,229,194,.07);
+      padding: 7px 12px; border-radius: 999px;
+    }
+    h1 { font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.06; letter-spacing: -.055em; margin: 22px 0 18px; }
+    h1 span { color: var(--accent); }
+    .intro { color: var(--muted); font-size: clamp(1rem, 2.2vw, 1.15rem); max-width: 600px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 18px; border-radius: 12px; text-decoration: none;
+      font-weight: 750; border: 1px solid var(--border); transition: transform .2s, opacity .2s;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .primary { background: var(--accent); color: #07131a; border-color: transparent; }
+    .secondary { background: rgba(255,255,255,.04); }
+    .profile-wrap { display: grid; place-items: center; }
+    .profile-card {
+      width: min(100%, 330px); aspect-ratio: 4 / 5; padding: 16px;
+      border: 1px solid var(--border); border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.025));
+      box-shadow: 0 25px 80px rgba(0,0,0,.28);
+      transform: rotate(2deg);
+    }
+    .avatar {
+      height: 100%; border-radius: 19px; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center; gap: 12px;
+      background: radial-gradient(circle at 50% 30%, rgba(114,229,194,.2), transparent 45%), #131c31;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .avatar-icon {
+      width: 116px; height: 116px; border-radius: 50%;
+      display: grid; place-items: center; font-size: 3.1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #0b1020;
+      border: 5px solid rgba(255,255,255,.14);
+    }
+    .avatar strong { font-size: 1.25rem; }
+    .avatar small { color: var(--muted); }
+    section { padding: 44px 0; }
+    .section-kicker { color: var(--accent); text-transform: uppercase; letter-spacing: .14em; font-size: .76rem; font-weight: 800; }
+    h2 { margin: 8px 0 14px; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; letter-spacing: -.035em; }
+    .section-intro { color: var(--muted); max-width: 680px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .card { padding: 23px; border-radius: 20px; border: 1px solid var(--border); background: var(--panel); }
+    .card .emoji { font-size: 1.8rem; }
+    .card h3 { margin: 12px 0 6px; }
+    .card p { color: var(--muted); margin: 0; }
+    .contact-box {
+      display: flex; justify-content: space-between; align-items: center; gap: 22px;
+      padding: clamp(22px, 5vw, 38px); border-radius: 24px;
+      border: 1px solid var(--border);
+      background: linear-gradient(120deg, rgba(130,170,255,.12), rgba(114,229,194,.09));
+    }
+    .contact-box p { color: var(--muted); margin-bottom: 0; }
+    footer { padding: 30px 0 38px; color: var(--muted); font-size: .9rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 20px; }
+    @media (max-width: 720px) {
+      .container { width: min(100% - 28px, 560px); }
+      .nav { align-items: flex-start; flex-direction: column; }
+      nav { gap: 14px; }
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 34px; padding: 44px 0 48px; }
+      .profile-wrap { order: -1; }
+      .profile-card { width: min(76%, 260px); }
+      .avatar-icon { width: 92px; height: 92px; font-size: 2.5rem; }
+      .cards { grid-template-columns: 1fr; }
+      .contact-box { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">Sunny<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About / পরিচিতি</a>
+        <a href="#interests">Interests / পছন্দ</a>
+        <a href="#contact">Contact / যোগাযোগ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div>
+        <div class="eyebrow">✦ Student · শিক্ষার্থী</div>
+        <h1>Hello, I'm<br><span>Tanjid Ahmed Sunny</span></h1>
+        <p class="intro">
+          Welcome to my little corner of the internet. আমি একজন শিক্ষার্থী, নতুন কিছু জানতে ভালোবাসি,
+          ঘুরে বেড়াতে পছন্দ করি এবং ব্যাডমিন্টন খেলতে আনন্দ পাই।
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#about">Get to know me / পরিচিত হোন</a>
+          <a class="button secondary" href="#contact">Contact me / যোগাযোগ</a>
+        </div>
+      </div>
+      <div class="profile-wrap" aria-label="Profile illustration">
+        <div class="profile-card">
+          <div class="avatar">
+            <div class="avatar-icon" aria-hidden="true">TS</div>
+            <strong>Tanjid Ahmed Sunny</strong>
+            <small>Student · Explorer · Badminton Fan</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="about">
+      <div class="section-kicker">About me · আমার পরিচয়</div>
+      <h2>A little about me</h2>
+      <p class="section-intro">
+        আমি বর্তমানে একজন শিক্ষার্থী। শেখা, নতুন জায়গা দেখা এবং প্রিয় খেলাটি উপভোগ করার মধ্য দিয়ে
+        নিজের অভিজ্ঞতা বাড়াতে ভালোবাসি। প্রতিদিন একটু একটু করে নতুন কিছু শেখাই আমার লক্ষ্য।
+      </p>
+    </section>
+
+    <section class="container" id="interests">
+      <div class="section-kicker">Things I enjoy · আমার পছন্দ</div>
+      <h2>My interests</h2>
+      <p class="section-intro">Here are a few things that make me happy.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="emoji" aria-hidden="true">🎓</div>
+          <h3>Learning · শেখা</h3>
+          <p>শিক্ষার্থী হিসেবে নতুন জ্ঞান অর্জন করতে এবং প্রতিদিন নিজেকে উন্নত করতে চাই।</p>
+        </article>
+        <article class="card">
+          <div class="emoji" aria-hidden="true">🌍</div>
+          <h3>Travel · ভ্রমণ</h3>
+          <p>নতুন জায়গায় ঘুরতে, সুন্দর দৃশ্য দেখতে এবং নতুন অভিজ্ঞতা পেতে ভালোবাসি।</p>
+        </article>
+        <article class="card">
+          <div class="emoji" aria-hidden="true">🏸</div>
+          <h3>Badminton · ব্যাডমিন্টন</h3>
+          <p>ব্যাডমিন্টন আমার পছন্দের খেলা—খেলতে ও সক্রিয় থাকতে ভালো লাগে।</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="contact">
+      <div class="contact-box">
+        <div>
+          <div class="section-kicker">Get in touch · যোগাযোগ</div>
+          <h2>Let's connect!</h2>
+          <p>Feel free to send me an email. / চাইলে আমাকে ইমেইল করতে পারো।</p>
+          <p><strong>tanjidahmedsunny@gmail.com</strong></p>
+        </div>
+        <a class="button primary" href="mailto:tanjidahmedsunny@gmail.com">Send an email / ইমেইল পাঠান ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Tanjid Ahmed Sunny. All rights reserved.</span>
+      <span>Made with care · যত্ন দিয়ে তৈরি</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
